@@ -1,0 +1,37 @@
+/* job-portal-frontend/src/app/components/job-applications-list/job-applications-list.component.scss */
+.container {
+  padding: 24px;
+  margin: 24px;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0;
+}
+
+.no-applications {
+  text-align: center;
+  margin: 48px 0;
+  color: #666;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell, td.mat-cell {
+  padding: 12px;
+}

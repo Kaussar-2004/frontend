@@ -1,0 +1,34 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #e0e0e0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.nav-button {
+  margin: 0 5px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  &.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+}
+
+mat-toolbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

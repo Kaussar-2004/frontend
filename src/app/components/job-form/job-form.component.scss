@@ -1,0 +1,44 @@
+/* job-portal-frontend/src/app/components/job-form/job-form.component.scss */
+.container {
+  padding: 24px;
+  margin: 24px;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  
+  h1 {
+    margin-left: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}

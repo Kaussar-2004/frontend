@@ -1,0 +1,76 @@
+<!-- job-portal-frontend/src/app/components/job-application-form/job-application-form.component.html -->
+<div class="container mat-elevation-z4">
+  <div class="header">
+    <button mat-icon-button routerLink="/jobs">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>Apply for Job</h1>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!isLoading && job">
+    <mat-card class="job-summary">
+      <mat-card-header>
+        <mat-card-title>{{ job.job_title }}</mat-card-title>
+        <mat-card-subtitle>{{ job.company_name }} • {{ job.location }}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="job-info">
+          <div class="info-item">
+            <mat-icon>work</mat-icon>
+            <span>{{ job.job_type }}</span>
+          </div>
+          
+          <div *ngIf="job.salary_range" class="info-item">
+            <mat-icon>monetization_on</mat-icon>
+            <span>{{ job.salary_range }}</span>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon>event</mat-icon>
+            <span>Application Deadline: {{ job.application_deadline | date }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="form-section">
+      <h2>Your Information</h2>
+      <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="applicant_name" required>
+            <mat-error *ngIf="applicationForm.get('applicant_name')?.hasError('required')">
+              Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            <mat-error *ngIf="applicationForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="applicationForm.get('email')?.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+          <button mat-button type="button" [routerLink]="['/jobs', jobId]">Cancel</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="applicationForm.invalid">
+            Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

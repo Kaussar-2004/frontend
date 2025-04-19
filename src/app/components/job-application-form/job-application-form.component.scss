@@ -1,0 +1,63 @@
+/* job-portal-frontend/src/app/components/job-application-form/job-application-form.component.scss */
+.container {
+  padding: 24px;
+  margin: 24px;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  
+  h1 {
+    margin-left: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0;
+}
+
+.job-summary {
+  margin-bottom: 32px;
+}
+
+.job-info {
+  margin: 16px 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  
+  mat-icon {
+    margin-right: 8px;
+    color: #666;
+  }
+}
+
+.form-section {
+  h2 {
+    margin-bottom: 24px;
+  }
+}
+
+.form-row {
+  margin-bottom: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}

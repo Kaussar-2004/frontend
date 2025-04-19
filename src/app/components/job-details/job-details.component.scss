@@ -1,0 +1,62 @@
+/* job-portal-frontend/src/app/components/job-details/job-details.component.scss */
+.container {
+  padding: 24px;
+  margin: 24px;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  
+  .back-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  h1 {
+    margin-left: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0;
+}
+
+.job-card {
+  padding: 16px;
+}
+
+.job-info {
+  margin: 24px 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  
+  mat-icon {
+    margin-right: 8px;
+    color: #666;
+  }
+}
+
+.divider {
+  margin: 24px 0;
+}
+
+.job-description {
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+mat-card-actions {
+  padding: 16px;
+  display: flex;
+  gap: 8px;
+}

@@ -1,0 +1,60 @@
+<!-- job-portal-frontend/src/app/components/job-applications-list/job-applications-list.component.html -->
+<div class="container mat-elevation-z4">
+  <div class="header">
+    <h1>Job Applications</h1>
+    <button mat-raised-button color="primary" routerLink="/jobs">
+      View Jobs
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  
+  <div *ngIf="!isLoading && applications.length === 0" class="no-applications">
+    <p>No applications have been submitted yet.</p>
+  </div>
+  
+  <div *ngIf="!isLoading && applications.length > 0" class="table-container">
+    <table mat-table [dataSource]="applications" class="mat-elevation-z1">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let application">{{ application.id }}</td>
+      </ng-container>
+      
+      <!-- Applicant Name Column -->
+      <ng-container matColumnDef="applicant_name">
+        <th mat-header-cell *matHeaderCellDef>Applicant</th>
+        <td mat-cell *matCellDef="let application">{{ application.applicant_name }}</td>
+      </ng-container>
+      
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let application">{{ application.email }}</td>
+      </ng-container>
+      
+      <!-- Job Title Column -->
+      <ng-container matColumnDef="job_title">
+        <th mat-header-cell *matHeaderCellDef>Job</th>
+        <td mat-cell *matCellDef="let application">{{ application.job_title }}</td>
+      </ng-container>
+      
+      <!-- Company Name Column -->
+      <ng-container matColumnDef="company_name">
+        <th mat-header-cell *matHeaderCellDef>Company</th>
+        <td mat-cell *matCellDef="let application">{{ application.company_name }}</td>
+      </ng-container>
+      
+      <!-- Applied At Column -->
+      <ng-container matColumnDef="applied_at">
+        <th mat-header-cell *matHeaderCellDef>Applied On</th>
+        <td mat-cell *matCellDef="let application">{{ application.applied_at | date }}</td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

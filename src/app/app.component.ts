@@ -1,12 +1,24 @@
+// job-portal-frontend/src/app/app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
+  standalone: false,
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss', './app.component.styles.scss']
 })
 export class AppComponent {
-  title = 'job-portal-frontend';
+  title = 'SkillLink';
+  showNavigation = false;
+  
+  constructor(private router: Router) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      // Hide navigation on role-selection page
+      this.showNavigation = !event.url.includes('/role-selection');
+    });
+  }
 }
